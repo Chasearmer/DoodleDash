@@ -1,0 +1,85 @@
+.canvas-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns: one for the pickers and one for the canvas */
+    grid-template-rows: 1fr; /* One row */
+    grid-column: 1 / span 2; /* Span across the first and second columns */
+    grid-row: 2; /* Position in the second row */
+  }
+
+.brush-size-picker {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
+  display: flex;
+  flex-direction: column; /* Horizontal layout for brush sizes */
+  justify-content: center;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.brush-size-picker button {
+  margin: 7px;
+  padding: 0; /* Padding is not necessary as size is set by width and height */
+  border: 1px solid black;
+  background-color: black;
+  cursor: pointer;
+}
+
+/* Optional: To indicate the button is clickable, change background on hover */
+.brush-size-picker button:hover {
+  background-color: #e6e6e6;
+}
+
+/* Optional: To visually distinguish the selected size */
+.brush-size-picker button.selected {
+  box-shadow: 0 0 0 2px #555 inset;
+}
+
+
+.color-picker {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.color-picker button, .canvas-area button {
+  margin: 0 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.color-picker button:focus,
+.color-picker button:hover,
+.canvas-area button:focus,
+.canvas-area button:hover {
+  outline: none;
+  border-color: #666;
+}
+
+.color-picker button {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+  flex-direction: row; /* Align color buttons horizontally */
+  justify-content: center; /* Center buttons */
+  padding-bottom: 1rem; /* Add padding below */
+  border: none;
+  cursor: pointer;
+}
+
+.canvas-area {
+    grid-column: 2;
+    grid-row: 1;
+    /* Styles for the canvas area */
+    display: flex;
+    justify-content: center;
+  }

@@ -1,0 +1,240 @@
+.App {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the app in the middle of the page */
+}
+
+.start-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start; /* Center the content vertically */
+  height: 90vh;
+  text-align: center;
+  padding: 0 20px; /* Add some padding on the sides */
+}
+
+.start-game-title {
+  font-size: 6em; /* Make the title larger */
+  color: white;
+  margin-bottom: 0.2em; /* Reduce the space below the title */
+}
+
+.start-game-subtitle {
+  font-size: 2em;
+  color: white;
+  margin-bottom: 1em;
+}
+
+.start-game-instructions {
+  background-color: #f9f9f9; /* Light grey background */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 2em; /* Space before the start button */
+  max-width: 800px; /* Max width for readability */
+  color: #333; /* Dark grey text */
+  font-weight: normal;
+  font-size: 1.2em;
+  /* Align text to the left */
+  text-align: left;
+
+}
+
+.start-game-button {
+  font-size: 2em;
+  padding: 15px 30px;
+  margin-top: 20px; /* Add more space above the button */
+  background-color: #32c787; /* A bright green for more pop */
+  color: white;
+  border: none;
+  border-radius: 50px; /* More rounded corners */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  transition: transform 0.2s ease, background-color 0.3s ease; /* Smooth transition for both transform and color */
+}
+
+.start-game-button:hover {
+  background-color: #28a765; /* A slightly darker green on hover */
+  transform: scale(1.05); /* Slightly grow the button when hovered */
+}
+
+/* Add the CSS for the instructions class that you will use in your JSX */
+.instructions {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+.correct-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  pointer-events: none; /* Added this line */
+}
+
+.correct-overlay > .correct-button-popup {
+  pointer-events: all; /* Reactivate pointer events for the button */
+}
+
+
+.correct-button-popup {
+  padding: 20px;
+  font-size: 1.5rem;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.correct-button-popup:hover {
+  background-color: #43A047;
+}
+
+.confetti-canvas {
+  position: absolute;
+  pointerEvents: 'none';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Higher than other elements, adjust as necessary */
+}
+
+.game-area {
+  position: relative; /* Allows the confetti canvas to be positioned absolutely */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Three columns with the middle one being the widest */
+  grid-template-rows: auto 1fr; /* Two rows */
+  gap: 10px; /* Space between grid items */
+  padding: 10px; /* Padding around the grid */
+  height: 100vh; /* Use the full height of the viewport */
+}
+
+.timer {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
+}
+
+.current-word {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.word {
+  display: block; /* Makes the span behave like a block-level element, causing a line break */
+  font-size: 3em; /* Adjust size as needed */
+  font-family: 'Comic Neue'
+}
+
+.game-controls {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center; /* place at bottom */
+  margin-right: 2rem; /* Space from the canvas */
+
+}
+
+.correct-button {
+  border-radius: 15px; /* Rounded corners */
+  background-color: green; /* Green background */
+  padding: 10px 20px; /* Larger padding to make the button larger */
+  font-size: 1.2em; /* Larger font size */
+  cursor: pointer; /* Indicates it's clickable */
+  opacity: 1; /* Fully visible when active */
+}
+
+.correct-button.disabled {
+  background-color: grey; /* Dull color indicates it's not clickable */
+  cursor: not-allowed; /* Indicates the button is disabled */
+  opacity: 0.5; /* Transparency indicates it's not active */
+}
+
+.skip-button {
+  border-radius: 15px; /* Rounded corners */
+  padding: 5px 10px; /* Smaller padding */
+  font-size: 1.3em; /* Standard font size */
+}
+
+.skip-button:hover {
+  background-color: #e6e6e6; /* Light grey background on hover */
+  transform: scale(1.05);
+}
+
+.skip-button:active {
+  transform: scale(0.95);
+}
+
+.game-controls button {
+  margin: 0 10px;
+}
+
+.undo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.undo-button i {
+  font-size: 20px; /* Or any size you want */
+  color: #333; /* Or any color you want */
+}
+
+
+
+.guesses-list {
+  grid-column: 3;
+  grid-row: 2;
+  align-self: flex-start;
+  background-color: #f9f9f9; /* Light grey background for the box */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+  width: 200px; /* Adjust width as necessary */
+  padding: 10px; /* Padding inside the box */
+  margin-left: 1rem; /* Space from the canvas */
+}
+
+.guesses-title {
+  margin-top: 0;
+  margin-bottom: 10px; /* Space below the title */
+  font-size: 1.2em; /* Larger font size for the title */
+  font-weight: bold; /* Bold font weight for the title */
+}
+
+.guesses {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  text-align: left; /* Left align text */
+}
+
+.guess {
+  background-color: #fff; /* White background for individual guesses */
+  padding: 5px 10px; /* Padding inside each guess */
+  margin-bottom: 5px; /* Space between guesses */
+  border-radius: 4px; /* Rounded corners for each guess */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Optional: subtle shadow for each guess */
+}
+
+/* Add more styles as needed */
+
+
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
