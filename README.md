@@ -6,6 +6,11 @@
 
 Welcome to DoodleDash, a game where you draw and let the AI guess! The objective is simple: draw the word provided as clearly and quickly as you can, while your AI teammate (GPT-4 Vision) tries to guess it. The more words the AI guesses correctly within the time limit, the higher your score!
 
+## Demo 📹
+
+https://github.com/Chasearmer/DoodleDash/assets/23300817/96018055-d558-40b8-89b8-eb8a5232a814
+
+
 ## Getting Started 🚀
 
 Follow these steps to get started:
@@ -26,7 +31,7 @@ Follow these steps to get started:
 
 ## Gameplay 🎮
 
-Check out this [video](https://www.loom.com/share/d97799365c744cf090e4f34455513839?sid=14b5746a-e5f2-43f0-9506-42832e4d6b58) for DoodleDash gameplay.
+Check out this [video](https://www.loom.com/share/e3a6631390a44179a8ad2f97d0d78da0?sid=ea4c9329-2abb-47cd-8865-39215e9fb900) for DoodleDash gameplay (same as embedded video above).
 
 ## Contributing 🤝
 
